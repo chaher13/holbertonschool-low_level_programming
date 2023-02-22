@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+/**
+ * main - Entry point
+ * Return: Always 0 (Success)
+ */
+
+int main(void)
+{
+
+char calu;
+for (calu = 'a'; calu <= 'z'; low++)
+putchar(calu);
+
+for (calu = 'A'; calu <= 'Z'; low++)
+putchar(calu);
+putchar('\n');
+
+return (0);
+}
