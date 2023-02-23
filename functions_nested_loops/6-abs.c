@@ -13,5 +13,5 @@ int absval;
 absval = c * -1;
 return (absval);
 }
-return (0);
+return (c);
 }
