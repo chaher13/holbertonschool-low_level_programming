@@ -12,7 +12,8 @@ void _printfloat(va_list list);
 void _printint(va_list list);
 
 /**
- * @checker verify 
+ 
+ * checker  
  * @type to let
  */
 
