@@ -12,14 +12,15 @@ void _printfloat(va_list list);
 void _printint(va_list list);
 
 /**
- * checker
- * @type to let
+ * struct checker - struct
+ * @type:string
+ * @f: function pointer
  */
 
 typedef struct checker
 {
 char *type;
-void (*f)();
+void (*f)(va_list);
 } checker;
 
 #endif
