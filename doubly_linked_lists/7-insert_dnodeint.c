@@ -1,46 +1,54 @@
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - inserts a new node at a given position
- * @h: double pointer to the beginning of the linked list
- * @idx: index at which to insert the new node
- * @n: data to enter into new node
- * Return: pointer to the new node, or NULL on failure
+ * insert_dnode_at_index - inserts a new node at a given posotion
+ * @h: the pointer to the struct
+ * @idx: index of the list where the new node should be added
+ * @n: integer in the struct
+ *
+ * Return: Address of the new node or NULL if it failed
+ *
  */
 
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h,
+				     unsigned int idx, int n)
 {
-	dlistint_t *new, *next, *current;
-	unsigned int i;
+	dlistint_t *newnode, *current = *h, *prev;
+	unsigned int index;
 
-	if (h == NULL)
+	if (*h == NULL && idx != 0)
 		return (NULL);
-	if (idx != 0)
-	{
-		current = *h;
-		for (i = 0; i < idx - 1 && current != NULL; i++)
+	newnode = malloc(sizeof(dlistint_t));
+	if (newnode == NULL)
+		return (NULL);
+
+	if (*h != NULL)
+	{prev = NULL;
+		while (current->prev != NULL)
+			current = current->prev;
+		for (index = 0; current != NULL && index < idx; index++)
+		{prev = current;
 			current = current->next;
-		if (current == NULL)
-			return (NULL);
-	}
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
+		}
+		if (index == idx)
+		{newnode->n = n;
+			newnode->prev = prev;
+			if (current != NULL)
+				current->prev = newnode;
+			newnode->next = current;
+			if (idx == 0)
+			{*h = newnode;
+			}
+			else
+			{prev->next = newnode;
+			}
+			return (newnode);
+		}
 		return (NULL);
-	new->n = n;
-	if (idx == 0)
-	{
-		next = *h;
-		*h = new;
-		new->prev = NULL;
 	}
-	else
-	{
-		new->prev = current;
-		next = current->next;
-		current->next = new;
-	}
-	new->next = next;
-	if (new->next != NULL)
-		new->next->prev = new;
-	return (new);
+	newnode->next = NULL;
+	newnode->prev = NULL;
+	newnode->n = n;
+	*h = newnode;
+	return (newnode);
 }
