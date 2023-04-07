@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * insert_dnode_at_index - inserts a new node at a given posotion
+ * insert_dnodeint_at_index - inserts a new node at a given posotion
  * @h: the pointer to the struct
  * @idx: index of the list where the new node should be added
  * @n: integer in the struct
@@ -10,8 +10,7 @@
  *
  */
 
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h,
-				     unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *newnode, *current = *h, *prev;
 	unsigned int index;
