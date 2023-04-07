@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
  * binary_to_uint - converts a base2 binary to base10 unsigned int
